@@ -1,0 +1,229 @@
+openapi: 3.0.3
+info:
+  title: MakeWeBet OpenAPI Spec
+  description: This is an assessment from MakeWeBet Platform
+  version: 1.0.11
+externalDocs:
+  description: Find out more about MWB Api
+  url: http://swagger.io
+servers:
+  - url: https://localhost:5001/api
+tags:
+  - name: user
+    description: Everything about your users
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+  - name: store
+    description: Everything about Stores
+    externalDocs:
+      description: Find out more about our store
+      url: http://swagger.io
+paths:
+  /users:
+    get:
+      summary: 'Gets All Users'
+      description: ''
+      operationId: getAllUsers
+      responses:
+        '200':
+          description: A list of users
+          content: 
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/User"
+      tags:
+        - user
+  /addUser:
+    post:
+      summary: Adds new user
+      description: ''
+      operationId: addUser
+      requestBody:
+       description: ''
+       content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/User"
+      responses:
+        '200':
+          description: Added User
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        default:
+          description: Default error sample response
+      tags:
+        - user
+  /payForProduct:
+    post:
+      summary: User pays for product
+      description: ''
+      operationId: payForProduct
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PayForProductModel"
+      responses:
+        '200':
+          description: User Pays For Product
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PayForProductResponseModel"
+        '400':
+          description: Failed Payment / Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - user
+        
+        
+  /stores:
+    get:
+      tags:
+        - store
+      summary: Gets All Stores
+      description: ''
+      operationId: getAllStores
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
+  /addStore:    
+    post:
+      tags:
+        - store
+      summary: Adds a new store
+      description: ''
+      operationId: addStore
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Store"
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
+  /addProduct:
+    post:
+      tags:
+        - store
+      summary: Adds a product to store
+      description: ''
+      operationId: addProduct
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Product"
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Store"
+        
+
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+          example: John
+        walletBalance:
+          type: integer
+          description: User Wallet Balance
+          format: int32
+          example: 0
+      xml:
+        name: user
+    Store:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        name:
+          type: string
+          example: ShopRite
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/Product"
+      xml:
+        name: order
+    Product:
+      type: object
+      properties:
+       name:
+        type: string
+        example: Coke
+       cost:
+        type: integer
+        example: 69
+      xml:
+        name: product
+    PayForProductModel:
+      type: object
+      properties:
+        user_name:
+          type: string
+          example: John
+        cost:
+          type: integer
+          example: 50
+        userBarcodeReference:
+          type: string
+          example: "JohnWalletBalance"
+      xml:
+        name: category
+    PayForProductResponseModel:
+      type: object
+      properties:
+        userName:
+          type: string
+          example: John
+        cost:
+          type: integer
+          example: 50
+        userBarcodeReference:
+          type: string
+          example: "JohnWalletBalance"
+        message:
+          type: string
+          example: success
+      xml:
+        name: category
+        
+    Error:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: Failed
+        reason:
+          type: string
+          example: a valid reason it failed

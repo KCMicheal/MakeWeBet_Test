@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeWeBet_Test", "MakeWeBet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeWeBet_Test_Domain", "MakeWeBet_Test_Domain\MakeWeBet_Test_Domain.csproj", "{377E9392-7C76-4334-8FE9-AAD9188DA723}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeWeBet_Test_Core", "MakeWeBet_Test_Core\MakeWeBet_Test_Core.csproj", "{5237170B-5329-493A-987F-B73B0F1F339B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{377E9392-7C76-4334-8FE9-AAD9188DA723}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{377E9392-7C76-4334-8FE9-AAD9188DA723}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{377E9392-7C76-4334-8FE9-AAD9188DA723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5237170B-5329-493A-987F-B73B0F1F339B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5237170B-5329-493A-987F-B73B0F1F339B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5237170B-5329-493A-987F-B73B0F1F339B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5237170B-5329-493A-987F-B73B0F1F339B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
