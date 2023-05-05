@@ -1,4 +1,6 @@
 using MakeWeBet_Test.Extentions;
+using MakeWeBet_Test_Domain.Context;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureCors();
+builder.Services.AddDbContext<MakeWeBetContext>(opt =>
+    opt.UseSqlServer(builder.Configuration["ConnectionStrings:sqlConnection"], b => b.MigrationsAssembly("MakeWeBet_Test")));
+
 
 var app = builder.Build();
 
