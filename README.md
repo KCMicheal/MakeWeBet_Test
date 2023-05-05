@@ -28,3 +28,6 @@ Alternatively, you can also run the project using Docker. You need to have Docke
 ## Database design picture
 
 The database design picture is located in the `root` folder of the project. It shows the entity relationships and attributes of the database.
+
+## OpenAPI Specification
+The openapi specification is located also in the `root` of the project called `openapi.yaml`.
